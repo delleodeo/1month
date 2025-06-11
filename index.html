@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy 1st Monthsary My Love 💕</title>
+    <meta name="description" content="A romantic website celebrating our first month together" />
+    <meta name="author" content="Your Loving Partner" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <!-- Login Screen -->
+    <div id="loginScreen" class="screen active">
+        <div class="login-container">
+            <div class="login-card">
+                <div class="login-header">
+                    <div class="login-heart">
+                        <svg class="heart-icon animate-pulse" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                        </svg>
+                    </div>
+                    <h1>Welcome to Our Love Story</h1>
+                    <p>Enter your details to continue</p>
+                </div>
+
+                <form id="loginForm" class="login-form">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" placeholder="Enter your beautiful name" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="What's the magic word? 💕" required />
+                    </div>
+
+                    <div id="loginError" class="error-message"></div>
+
+                    <button type="submit" class="login-btn">
+                        Enter Our Love Story
+                    </button>
+                </form>
+
+                <div class="login-hint">
+                    <p>Hint: The password is something we both share 💖</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main App -->
+    <div id="mainApp" class="screen">
+        <!-- Background Elements -->
+        <div class="background-elements">
+            <div class="bg-circle bg-circle-1"></div>
+            <div class="bg-circle bg-circle-2"></div>
+            <div class="bg-circle bg-circle-3"></div>
+        </div>
+
+        <!-- Floating Hearts -->
+        <div id="floatingHearts" class="floating-hearts"></div>
+
+        <!-- Background Music Control -->
+        <div class="music-control">
+            <button id="musicBtn" class="music-btn" title="Play romantic music">
+                <svg class="music-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 18V5l12-2v13" />
+                    <circle cx="6" cy="18" r="3" />
+                    <circle cx="18" cy="16" r="3" />
+                </svg>
+            </button>
+
+            <div id="volumeControl" class="volume-control hidden">
+                <div class="volume-label">Volume</div>
+                <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.3" class="volume-slider" />
+            </div>
+
+            <audio id="backgroundMusic" preload="none" loop>
+                <source src="./music/leaves.mp3"
+                    type="audio/mpeg" />
+            </audio>
+            <!-- <iframe width="0" height="0" style="display: none;"
+                src="https://www.youtube.com/watch?v=5oxxi0d7AQI&list=RD5oxxi0d7AQI&start_radio=1" frameborder="0"
+                allow="autoplay">
+            </iframe> -->
+        </div>
+
+        <!-- Main Content Container -->
+        <div class="main-container">
+            <!-- Landing Page -->
+            <div id="landingPage" class="content-section active">
+                <div class="user-header">
+                    <div class="user-info">
+                        <svg class="user-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                            <circle cx="12" cy="7" r="4" />
+                        </svg>
+                        <span id="welcomeUser">Welcome!</span>
+                    </div>
+                    <button id="logoutBtn" class="logout-btn">Logout</button>
+                </div>
+
+                <div class="landing-content">
+                    <h1 class="main-title">
+                        <span id="typedText"></span>
+                        <span class="cursor">|</span>
+                    </h1>
+                    <p class="subtitle">
+                        Celebrating one month of love
+                    </p>
+
+                    <div class="feature-grid">
+                        <div class="feature-card" data-section="message">
+                            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                            </svg>
+                            <h3>Love Message</h3>
+                            <p>A special message just for you</p>
+                        </div>
+
+                        <div class="feature-card" data-section="memories">
+                            <svg class="feature-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                            </svg>
+                            <h3>Our Memories</h3>
+                            <p>Chat-style memory board</p>
+                        </div>
+
+                        <div class="feature-card" data-section="photos">
+                            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+                                <circle cx="12" cy="13" r="4" />
+                            </svg>
+                            <h3>Photo Gallery</h3>
+                            <p>Our beautiful moments together</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Personal Message Section -->
+            <div id="messagePage" class="content-section">
+                <div class="section-header">
+                    <button class="back-btn" data-back="landing">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 12H5" />
+                            <path d="M12 19l-7-7 7-7" />
+                        </svg>
+                        Back
+                    </button>
+                    <h2>A Message From My Heart</h2>
+                </div>
+
+                <div class="message-card">
+                    <div id="messageReveal" class="message-reveal">
+                        <div class="message-heart">
+                            <svg class="heart-icon animate-pulse" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                            </svg>
+                        </div>
+                        <h3>I have something special to tell you...</h3>
+                        <button id="revealBtn" class="reveal-btn">
+                            Reveal My Message
+                        </button>
+                    </div>
+
+                    <div id="messageContent" class="message-content hidden">
+                        <div class="message-heart-small">
+                            <svg class="heart-icon animate-pulse" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                            </svg>
+                        </div>
+
+                        <div class="love-letter">
+                            <p>
+                            <p>Hi baby, Happy 1st Monthsary sa atin! Isang buwan na tayo,</p>
+                            <p>Pero pakiramdam ko ang dami na nating napagdaanan — dami ga namang away e, haha.</p>
+                            <p>Kahit sandali pa lang, ayaw ko ng mawala ka sakin gusto ko lagi kitang kasama <br> kaya
+                                kahit nandiyan kalang naman sa manila feeling nag ibang bansa kana <br>
+                                nalulungkot ako lagi kasi gusto kitang makita anlayo mo naman kaya hindi kita mapuntahan
+                                kaya uwi ka na baby haha joke.</p>
+                            <p>Salamat sa mga effort mo, sa pag-intindi sakin lagi baby, na appreciate ko yun sobra.</p>
+                            <p>Ang sarap lang sa feeling na may isang katulad mo na nandiyan para sa’kin.</p>
+                            <p>Minsan may tampuhan, kulitan, madalas away haha, pero sa huli, ikaw pa rin ‘yung gusto
+                                kong kausap, kakampi, at kasama.</p>
+                            <p>Hindi ako perfect, pero pinipilit kong ayusin ugali ko para sa’yo.</p>
+                            <p>Excited pa ako sa mga susunod na buwan, taon, at memories na mabubuo natin.</p>
+                            <p>Sorry lagi kitang inaaway at pinapaiyak hindi ko na uulitin yun baby mag babaguhin ko na
+                                ugali ko.</p>
+                            <p>Salamat sayo baby, dito na muna kasi nalulungkot na ako sobrang miss na kita baby uwi ka
+                                na.</p>
+                            <p>Mahal na mahal kita. ❤️</p>
+                            </p>
+                        </div>
+
+                        <div class="hearts-footer">
+                            <svg class="heart-small animate-pulse" viewBox="0 0 24 24" fill="currentColor"
+                                style="animation-delay: 0s">
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                            </svg>
+                            <svg class="heart-small animate-pulse" viewBox="0 0 24 24" fill="currentColor"
+                                style="animation-delay: 0.2s">
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                            </svg>
+                            <svg class="heart-small animate-pulse" viewBox="0 0 24 24" fill="currentColor"
+                                style="animation-delay: 0.4s">
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                            </svg>
+                            <svg class="heart-small animate-pulse" viewBox="0 0 24 24" fill="currentColor"
+                                style="animation-delay: 0.6s">
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                            </svg>
+                            <svg class="heart-small animate-pulse" viewBox="0 0 24 24" fill="currentColor"
+                                style="animation-delay: 0.8s">
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Memory Chat Section -->
+            <div id="memoriesPage" class="content-section">
+                <div class="section-header">
+                    <button class="back-btn" data-back="landing">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 12H5" />
+                            <path d="M12 19l-7-7 7-7" />
+                        </svg>
+                        Back
+                    </button>
+                    <h2>Our Memory Board</h2>
+                </div>
+
+                <div class="chat-card">
+                    <div class="chat-messages" id="chatMessages">
+                        <!-- Messages will be populated by JavaScript -->
+                    </div>
+
+                    <div class="chat-footer">
+                        <p>
+                            "Every message, every moment, every memory with you is precious
+                            💕"
+                        </p>
+                        <div class="memory-icons">
+                            <div class="memory-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                                </svg>
+                                <span>Love</span>
+                            </div>
+                            <div class="memory-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path
+                                        d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+                                    <circle cx="12" cy="13" r="4" />
+                                </svg>
+                                <span>Memories</span>
+                            </div>
+                            <div class="memory-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon
+                                        points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+                                </svg>
+                                <span>Forever</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Photo Gallery Section -->
+            <div id="photosPage" class="content-section">
+                <div class="section-header">
+                    <button class="back-btn" data-back="landing">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 12H5" />
+                            <path d="M12 19l-7-7 7-7" />
+                        </svg>
+                        Back
+                    </button>
+                    <h2>Our Beautiful Moments</h2>
+                </div>
+
+                <div class="gallery-card">
+                    <div class="carousel-container">
+                        <div class="carousel" id="photoCarousel">
+                            <!-- Photos will be populated by JavaScript -->
+                        </div>
+                        <button class="carousel-btn carousel-prev" id="prevBtn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M15 18l-6-6 6-6" />
+                            </svg>
+                        </button>
+                        <button class="carousel-btn carousel-next" id="nextBtn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="gallery-footer">
+                        <p>"Every picture tells our beautiful love story 📸💕"</p>
+                        <div class="hearts-footer">
+                            <svg class="heart-small animate-pulse" viewBox="0 0 24 24" fill="currentColor"
+                                style="animation-delay: 0s">
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                            </svg>
+                            <svg class="heart-small animate-pulse" viewBox="0 0 24 24" fill="currentColor"
+                                style="animation-delay: 0.2s">
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                            </svg>
+                            <svg class="heart-small animate-pulse" viewBox="0 0 24 24" fill="currentColor"
+                                style="animation-delay: 0.4s">
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                            </svg>
+                            <svg class="heart-small animate-pulse" viewBox="0 0 24 24" fill="currentColor"
+                                style="animation-delay: 0.6s">
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                            </svg>
+                            <svg class="heart-small animate-pulse" viewBox="0 0 24 24" fill="currentColor"
+                                style="animation-delay: 0.8s">
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

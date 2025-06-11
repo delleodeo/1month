@@ -1,0 +1,883 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    overflow-x: hidden;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #4facfe 100%);
+    min-height: 100vh;
+}
+
+/* Screen Management */
+.screen {
+    display: none;
+    min-height: 100vh;
+    position: relative;
+}
+
+.screen.active {
+    display: block;
+}
+
+/* Login Screen Styles */
+.login-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f093fb 0%, #a855f7 50%, #4f46e5 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.login-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 1rem;
+    padding: 2rem;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.login-heart {
+    width: 4rem;
+    height: 4rem;
+    background: linear-gradient(135deg, #f093fb 0%, #a855f7 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem auto;
+}
+
+.heart-icon {
+    width: 2rem;
+    height: 2rem;
+    color: white;
+}
+
+.login-header h1 {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.login-header p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.875rem;
+}
+
+.login-form {
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    color: white;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 0.5rem;
+    color: white;
+    font-size: 1rem;
+}
+
+.form-group input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+}
+
+.error-message {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.875rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    display: none;
+}
+
+.error-message.show {
+    display: block;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background: linear-gradient(135deg, #ec4899 0%, #a855f7 100%);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.login-btn:hover {
+    transform: translateY(-1px);
+}
+
+.login-hint {
+    text-align: center;
+}
+
+.login-hint p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.75rem;
+}
+
+/* Main App Styles */
+#mainApp {
+    background: linear-gradient(135deg, #f093fb 0%, #a855f7 50%, #4f46e5 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background Elements */
+.background-elements {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.bg-circle {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+}
+
+.bg-circle-1 {
+    width: 20rem;
+    height: 20rem;
+    background: rgba(255, 255, 255, 0.1);
+    top: -10rem;
+    right: -10rem;
+    animation: pulse 4s ease-in-out infinite;
+}
+
+.bg-circle-2 {
+    width: 20rem;
+    height: 20rem;
+    background: rgba(236, 72, 153, 0.2);
+    bottom: -10rem;
+    left: -10rem;
+    animation: pulse 4s ease-in-out infinite 1s;
+}
+
+.bg-circle-3 {
+    width: 24rem;
+    height: 24rem;
+    background: rgba(168, 85, 247, 0.1);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulse 4s ease-in-out infinite 0.5s;
+}
+
+/* Floating Hearts */
+.floating-hearts {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.floating-heart {
+    position: absolute;
+    opacity: 0.3;
+    color: rgba(236, 72, 153, 0.4);
+    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.3));
+    animation: floatUp linear infinite;
+}
+
+/* Music Control */
+.music-control {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 50;
+}
+
+.music-btn {
+    width: 3rem;
+    height: 3rem;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.music-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.music-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.music-btn.playing .music-icon {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.volume-control {
+    position: absolute;
+    bottom: 3.5rem;
+    right: 0;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    min-width: 8rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.volume-control.hidden {
+    display: none;
+}
+
+.volume-label {
+    color: white;
+    font-size: 0.75rem;
+    margin-bottom: 0.25rem;
+}
+
+.volume-slider {
+    width: 100%;
+    height: 0.25rem;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 0.125rem;
+    appearance: none;
+    cursor: pointer;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 1rem;
+    height: 1rem;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Main Container */
+.main-container {
+    position: relative;
+    z-index: 10;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1rem;
+}
+
+/* Content Sections */
+.content-section {
+    display: none;
+    width: 100%;
+    max-width: 4rem;
+    max-width: 64rem;
+}
+
+.content-section.active {
+    display: block;
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* User Header */
+.user-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    color: white;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.user-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.logout-btn {
+    background: transparent;
+    color: rgba(255, 255, 255, 0.8);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-size: 0.875rem;
+}
+
+.logout-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Landing Page */
+.landing-content {
+    text-align: center;
+}
+
+.main-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.cursor {
+    animation: blink 1s infinite;
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 32rem;
+    margin: 0 auto 3rem auto;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 64rem;
+    margin: 0 auto;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.feature-card:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-4px) scale(1.02);
+}
+
+.feature-icon {
+    width: 2rem;
+    height: 2rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0 auto 0.75rem auto;
+}
+
+.feature-card h3 {
+    color: white;
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.feature-card p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.875rem;
+}
+
+/* Section Header */
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.back-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.back-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.back-btn svg {
+    width: 1rem;
+    height: 1rem;
+}
+
+.section-header h2 {
+    color: white;
+    font-size: 1.875rem;
+    font-weight: 700;
+}
+
+/* Message Page */
+.message-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 1rem;
+    padding: 2rem;
+}
+
+.message-reveal {
+    text-align: center;
+}
+
+.message-heart {
+    width: 6rem;
+    height: 6rem;
+    background: linear-gradient(135deg, #f093fb 0%, #a855f7 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem auto;
+}
+
+.message-reveal h3 {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.reveal-btn {
+    background: linear-gradient(135deg, #ec4899 0%, #a855f7 100%);
+    color: white;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 2rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.reveal-btn:hover {
+    transform: scale(1.05);
+}
+
+.message-content {
+    animation: scaleIn 0.5s ease-out;
+}
+
+.message-heart-small {
+    width: 4rem;
+    height: 4rem;
+    background: linear-gradient(135deg, #f093fb 0%, #a855f7 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem auto;
+}
+
+.love-letter {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    backdrop-filter: blur(4px);
+}
+
+.love-letter p {
+    color: white;
+    font-size: 1.125rem;
+    line-height: 1.6;
+}
+
+.hearts-footer {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    padding-top: 1rem;
+}
+
+.heart-small {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: rgba(236, 72, 153, 0.8);
+}
+
+/* Chat Page */
+.chat-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 1rem;
+    padding: 1.5rem;
+}
+
+.chat-messages {
+    max-height: 24rem;
+    overflow-y: auto;
+    margin-bottom: 1.5rem;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.1);
+}
+
+.chat-messages::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+}
+
+.chat-message {
+    display: flex;
+    margin-bottom: 1rem;
+    animation: fadeIn 0.6s ease-out;
+}
+
+.chat-message.sent {
+    justify-content: flex-end;
+}
+
+.chat-message.received {
+    justify-content: flex-start;
+}
+
+.message-bubble {
+    max-width: 20rem;
+    padding: 0.75rem 1rem;
+    border-radius: 1rem;
+    margin: 0 3rem;
+}
+
+.message-bubble.sent {
+    background: linear-gradient(135deg, #ec4899 0%, #a855f7 100%);
+    color: white;
+    margin-left: 3rem;
+    margin-right: 0;
+}
+
+.message-bubble.received {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    margin-right: 3rem;
+    margin-left: 0;
+}
+
+.message-text {
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+}
+
+.message-time {
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+
+.chat-footer {
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+}
+
+.chat-footer p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+.memory-icons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.memory-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.memory-icon svg {
+    width: 1rem;
+    height: 1rem;
+}
+
+.memory-icon span {
+    font-size: 0.75rem;
+}
+
+/* Photo Gallery */
+.gallery-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 1rem;
+    padding: 2rem;
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 28rem;
+    margin: 0 auto 2rem auto;
+}
+
+.carousel {
+    overflow: hidden;
+    border-radius: 1rem;
+}
+
+.carousel-slide {
+    display: none;
+}
+
+.carousel-slide.active {
+    display: block;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.photo-container {
+    position: relative;
+    margin-bottom: 1rem;
+  
+}
+
+.photo {
+
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 1rem;
+          background-position: center;
+    background-size: contain;
+}
+
+.photo-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+    border-radius: 1rem;
+}
+
+.photo-info {
+    text-align: center;
+}
+
+.photo-caption {
+    color: white;
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.photo-date {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.875rem;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.carousel-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.carousel-prev {
+    left: -3rem;
+}
+
+.carousel-next {
+    right: -3rem;
+}
+
+.carousel-btn svg {
+    width: 1rem;
+    height: 1rem;
+}
+
+.gallery-footer {
+    text-align: center;
+}
+
+.gallery-footer p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+/* Utility Classes */
+.hidden {
+    display: none !important;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 0.8; }
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.6;
+    }
+    90% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .carousel-prev {
+        left: -2rem;
+    }
+    
+    .carousel-next {
+        right: -2rem;
+    }
+    
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .message-bubble {
+        margin: 0 1rem;
+        max-width: calc(100% - 2rem);
+    }
+    
+    .memory-icons {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-container {
+        padding: 1rem;
+    }
+    
+    .login-card,
+    .message-card,
+    .chat-card,
+    .gallery-card {
+        padding: 1rem;
+    }
+    
+    .carousel-prev,
+    .carousel-next {
+        display: none;
+    }
+}
