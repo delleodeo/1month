@@ -61,11 +61,26 @@
                 :key="i"
                 class="item-row"
               >
-                <img :src="getProductImage(item.productId)" class="item-thumb" :alt="`Product ${item.productId}`" />
+                <!-- Thumbnail with loading state -->
+                <div class="thumb-wrapper">
+                  <div v-if="!isImageLoaded(item.productId)" class="item-thumb placeholder"></div>
+                  <img
+                    :src="getProductData(item.productId).image"
+                    :alt="getProductData(item.productId).name"
+                    class="item-thumb"
+                    @load="onImageLoad(item.productId)"
+                    v-show="isImageLoaded(item.productId)"
+                  />
+                </div>
+
+                <!-- Main Details -->
                 <div class="item-main">
-                  <span class="item-product">Product {{ item.productId }}</span>
+                  <span class="item-product">{{ getProductData(item.productId).name }}</span>
                   <span class="item-details">Option {{ item.OptionNumber }} • Qty: {{ item.quantity }}</span>
                 </div>
+
+                <!-- Price per item -->
+                <div class="item-price">₱{{ formatCurrency(getProductData(item.productId).price) }}</div>
               </div>
             </div>
           </div>
@@ -269,13 +284,46 @@ const getPaymentStatusClass = (status: string) => {
 }
 
 const getProductImage = (id: string) => `https://picsum.photos/seed/${id}/120/120`
+
+// New functions for product data and loading state
+const productData = ref<Record<string, { name: string; price: number; image: string }>>({})
+const imageLoaded = ref<Record<string, boolean>>({})
+
+const getProductData = (id: string) => {
+  if (!productData.value[id]) {
+    // Mock product catalogue details (for demo)
+    const examples: Record<string, { name: string; price: number }> = {
+      PRD123: { name: 'Wireless Earbuds', price: 499.75 },
+      PRD456: { name: 'Bluetooth Speaker', price: 799.5 },
+      PRD789: { name: 'Smart Fitness Band', price: 1399.99 },
+      PRD321: { name: 'USB-C Charger', price: 299.0 },
+      PRD654: { name: 'Portable SSD 1TB', price: 6499.0 },
+    }
+
+    const fallback = { name: `Product ${id}`, price: 0 }
+    const base = examples[id] || fallback
+
+    productData.value[id] = {
+      ...base,
+      image: `https://picsum.photos/seed/${id}/120/120`,
+    }
+  }
+  return productData.value[id]
+}
+
+const isImageLoaded = (id: string) => !!imageLoaded.value[id]
+
+const onImageLoad = (id: string) => {
+  imageLoaded.value[id] = true
+}
 </script>
 
 <style scoped>
 /* ... existing code ... */
 .item-row {
+  position: relative;
   display: grid;
-  grid-template-columns: 56px 1fr;
+  grid-template-columns: 56px 1fr auto;
   align-items: center;
   gap: var(--spacing-2);
   padding: var(--spacing-2);
@@ -283,6 +331,20 @@ const getProductImage = (id: string) => `https://picsum.photos/seed/${id}/120/12
   border-radius: var(--border-radius);
   border: 1px solid var(--gray-200);
   transition: all 0.2s ease;
+}
+
+.item-row::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 72px; /* align after thumbnail */
+  right: 0;
+  height: 1px;
+  background: var(--gray-200);
+}
+
+.items-list .item-row:last-child::after {
+  content: none;
 }
 
 .item-row:hover {
@@ -297,6 +359,28 @@ const getProductImage = (id: string) => `https://picsum.photos/seed/${id}/120/12
   object-fit: cover;
   border-radius: var(--border-radius);
   background: var(--gray-100);
+}
+
+.item-thumb.placeholder {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.thumb-wrapper {
+  width: 56px;
+  height: 56px;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 0.3; }
+  100% { opacity: 0.6; }
+}
+
+.item-price {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gray-800);
+  white-space: nowrap;
 }
 
 .item-product {
