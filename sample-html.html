@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romantic Web App - Sample Components</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="sample-styles.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 2rem;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            margin: 2rem 0;
+            padding: 3rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section h2 {
+            text-align: center;
+            background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+        }
+        
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .feature-card {
+            background: linear-gradient(135deg, #ffeef8 0%, #f0e6ff 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .code-sample {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="hearts-canvas"></canvas>
+    
+    <div class="container">
+        <div class="section">
+            <h1 class="text-center text-gradient" style="font-size: 3rem; margin-bottom: 1rem;">
+                💕 Romantic Web App Sample Components 💕
+            </h1>
+            <p class="text-center" style="font-size: 1.2rem; color: #666; max-width: 600px; margin: 0 auto;">
+                A collection of beautiful, interactive components perfect for creating romantic web applications.
+                These samples complement your existing monthsary website with additional features.
+            </p>
+        </div>
+
+        <!-- Love Letter Generator Demo -->
+        <div class="section">
+            <h2>💌 Love Letter Generator</h2>
+            <div style="text-align: center;">
+                <input type="text" id="letterName" placeholder="Enter a name..." 
+                       style="padding: 1rem; border-radius: 10px; border: 2px solid #ff9a9e; font-size: 1rem; margin-right: 1rem;">
+                <button class="heart-button" onclick="generateLoveLetter()">Generate Letter</button>
+            </div>
+            <div id="letterResult" style="margin-top: 2rem; padding: 2rem; background: rgba(255, 154, 158, 0.1); border-radius: 15px; font-style: italic; text-align: center; min-height: 50px;"></div>
+            
+            <div class="code-sample">
+const loveLetterGen = new LoveLetterGenerator();
+const letter = loveLetterGen.generateLetter('Beautiful');
+console.log(letter);
+            </div>
+        </div>
+
+        <!-- Countdown Timer Demo -->
+        <div class="section">
+            <h2>⏰ Romantic Countdown</h2>
+            <p class="text-center">Countdown to Valentine's Day 2025:</p>
+            <div id="countdown-container"></div>
+            
+            <div class="code-sample">
+const countdown = new RomanticCountdown('2025-02-14', 'countdown-container');
+countdown.start();
+            </div>
+        </div>
+
+        <!-- Love Quiz Demo -->
+        <div class="section">
+            <h2>💭 Interactive Love Quiz</h2>
+            <div id="quiz-container"></div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <button class="heart-button" onclick="startQuiz()">Start Quiz</button>
+                <button class="heart-button" onclick="resetQuiz()" style="margin-left: 1rem;">Reset Quiz</button>
+            </div>
+            
+            <div class="code-sample">
+const loveQuiz = new LoveQuiz();
+document.getElementById('quiz-container').innerHTML = loveQuiz.renderQuestion();
+            </div>
+        </div>
+
+        <!-- Memory Timeline Demo -->
+        <div class="section">
+            <h2>📅 Memory Timeline</h2>
+            <div id="timeline-container"></div>
+            
+            <div class="code-sample">
+const timeline = new MemoryTimeline();
+document.getElementById('timeline-container').innerHTML = timeline.generateTimeline();
+            </div>
+        </div>
+
+        <!-- Love Calculator Demo -->
+        <div class="section">
+            <h2>💖 Love Calculator</h2>
+            <div class="love-calculator">
+                <div style="display: flex; gap: 1rem; justify-content: center; margin-bottom: 2rem;">
+                    <input type="text" id="name1" placeholder="First name" style="padding: 1rem; border-radius: 10px; border: 2px solid #ff9a9e;">
+                    <input type="text" id="name2" placeholder="Second name" style="padding: 1rem; border-radius: 10px; border: 2px solid #ff9a9e;">
+                </div>
+                <button class="heart-button" onclick="calculateLove()">Calculate Love ❤️</button>
+                <div id="love-result"></div>
+            </div>
+            
+            <div class="code-sample">
+const loveCalc = new LoveCalculator();
+const result = loveCalc.calculate('John', 'Jane');
+console.log('Love Score:', result);
+            </div>
+        </div>
+
+        <!-- Features Overview -->
+        <div class="section">
+            <h2>✨ Available Features</h2>
+            <div class="demo-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💌</div>
+                    <h3>Love Letter Generator</h3>
+                    <p>Generate personalized romantic messages with customizable templates and compliments.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⏰</div>
+                    <h3>Countdown Timer</h3>
+                    <p>Beautiful countdown timers for special dates and anniversaries with animated displays.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">💭</div>
+                    <h3>Interactive Quiz</h3>
+                    <p>Engaging relationship quizzes with scoring, feedback, and progress tracking.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📅</div>
+                    <h3>Memory Timeline</h3>
+                    <p>Visualize relationship milestones with an interactive timeline of special moments.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">💖</div>
+                    <h3>Love Calculator</h3>
+                    <p>Fun compatibility calculator with detailed breakdowns and romantic messages.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎆</div>
+                    <h3>Heart Particles</h3>
+                    <p>Animated floating hearts with physics simulation and customizable colors.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Usage Instructions -->
+        <div class="section">
+            <h2>🚀 How to Use</h2>
+            <div style="text-align: left; max-width: 800px; margin: 0 auto;">
+                <h3>1. Include the Files</h3>
+                <div class="code-sample">
+&lt;link rel="stylesheet" href="sample-styles.css"&gt;
+&lt;script src="samples.js"&gt;&lt;/script&gt;
+                </div>
+                
+                <h3>2. Initialize Components</h3>
+                <div class="code-sample">
+// Initialize any component you want to use
+const loveLetterGen = new LoveLetterGenerator();
+const countdown = new RomanticCountdown('2025-02-14', 'countdown-container');
+const heartParticles = new HeartParticles('hearts-canvas');
+
+// Start animations and timers
+countdown.start();
+heartParticles.start();
+                </div>
+                
+                <h3>3. Customize and Extend</h3>
+                <p>All components are designed to be easily customizable. You can:</p>
+                <ul>
+                    <li>Modify the color schemes and animations in the CSS</li>
+                    <li>Add new templates and messages to the generators</li>
+                    <li>Extend the quiz with your own questions</li>
+                    <li>Customize the timeline with your special dates</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="samples.js"></script>
+    <script>
+        // Initialize components when page loads
+        let loveLetterGen, countdown, loveQuiz, timeline, heartParticles, loveCalc;
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize all components
+            loveLetterGen = new LoveLetterGenerator();
+            countdown = new RomanticCountdown('2025-02-14T00:00:00', 'countdown-container');
+            loveQuiz = new LoveQuiz();
+            timeline = new MemoryTimeline();
+            heartParticles = new HeartParticles('hearts-canvas');
+            loveCalc = new LoveCalculator();
+            
+            // Start animations
+            countdown.start();
+            heartParticles.start();
+            
+            // Setup timeline
+            document.getElementById('timeline-container').innerHTML = timeline.generateTimeline();
+            
+            // Setup initial quiz display
+            document.getElementById('quiz-container').innerHTML = '<p style="text-align: center; color: #666;">Click "Start Quiz" to begin!</p>';
+        });
+        
+        // Demo functions
+        function generateLoveLetter() {
+            const name = document.getElementById('letterName').value || 'Beautiful';
+            const letter = loveLetterGen.generateLetter(name);
+            document.getElementById('letterResult').innerHTML = `<p>${letter}</p>`;
+        }
+        
+        function startQuiz() {
+            loveQuiz = new LoveQuiz(); // Reset quiz
+            document.getElementById('quiz-container').innerHTML = loveQuiz.renderQuestion();
+        }
+        
+        function resetQuiz() {
+            loveQuiz = new LoveQuiz();
+            document.getElementById('quiz-container').innerHTML = '<p style="text-align: center; color: #666;">Click "Start Quiz" to begin!</p>';
+        }
+        
+        function calculateLove() {
+            const name1 = document.getElementById('name1').value;
+            const name2 = document.getElementById('name2').value;
+            
+            if (!name1 || !name2) {
+                alert('Please enter both names!');
+                return;
+            }
+            
+            const result = loveCalc.calculate(name1, name2);
+            document.getElementById('love-result').innerHTML = `
+                <div class="love-score">${result.score}%</div>
+                <div class="love-message">${result.message}</div>
+                <div class="score-breakdown">
+                    <div class="score-item">
+                        <span>Name Compatibility</span>
+                        <div class="score-bar">
+                            <div class="score-fill" style="width: ${result.breakdown.nameCompatibility}%"></div>
+                        </div>
+                        <span>${Math.round(result.breakdown.nameCompatibility)}%</span>
+                    </div>
+                    <div class="score-item">
+                        <span>Personality Match</span>
+                        <div class="score-bar">
+                            <div class="score-fill" style="width: ${result.breakdown.personalityMatch}%"></div>
+                        </div>
+                        <span>${Math.round(result.breakdown.personalityMatch)}%</span>
+                    </div>
+                </div>
+            `;
+        }
+        
+        // Add click effect for heart particles
+        document.addEventListener('click', function(e) {
+            if (heartParticles && e.target.tagName !== 'INPUT' && e.target.tagName !== 'BUTTON') {
+                heartParticles.burst(e.clientX, e.clientY, 5);
+            }
+        });
+    </script>
+</body>
+</html>
